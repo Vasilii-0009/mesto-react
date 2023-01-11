@@ -6,7 +6,7 @@ function Card(props) {
 
   return (
     <div className="elements__element">
-      <div onClick={handleClick} alt="" style={{ backgroundImage: `url(${props.cardInfo.link})` }}
+      <div onClick={handleClick} style={{ backgroundImage: `url(${props.cardInfo.link})` }}
         className="elements__img" ></div>
       <div className="elements__box">
         <h2 className="elements__title">{props.cardInfo.name}</h2>
