@@ -4,12 +4,13 @@ import Main from './Main'
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm'
 import ImagePopup from './ImagePopup'
+
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false)
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false)
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false)
 
-  const [selectedCard, setSelectedCard] = useState(null)
+  const [selectedCard, setSelectedCard] = useState({ name: '', link: '' })
 
   function EditProfilePopup() {
     return (
@@ -72,21 +73,17 @@ function App() {
     setEditAvatarPopupOpen(true)
   }
 
-  function handleCardClick() {
-    setSelectedCard(true)
-  }
-
   function closeAllPopups() {
     setEditProfilePopupOpen(false)
     setAddPlacePopupOpen(false)
     setEditAvatarPopupOpen(false)
-    setSelectedCard(false)
+    setSelectedCard({ name: '' })
   }
 
   return (
     <div className="App">
       <Header />
-      <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} />
+      <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={setSelectedCard} />
       <Footer />
 
       <EditProfilePopup />

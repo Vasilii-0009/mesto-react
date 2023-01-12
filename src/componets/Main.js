@@ -41,7 +41,7 @@ function Main(props) {
         <button onClick={props.onAddPlace} type="button" className="  profile__add"></button>
       </section>
       <section className="elements container">
-        {cards.map((card, index) => {
+        {cards.map((card) => {
           return (
             <Card cardInfo={card} onCardClick={props.onCardClick} key={card._id} />
           )
