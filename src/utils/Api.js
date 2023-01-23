@@ -62,7 +62,7 @@ class Api {
     return this._checkResponse(deleteCard)
   }
 
-  addLike(id,) {
+  addLike(id) {
     const addLike = fetch(`${this._url}/cards/${id}/likes`, {
       method: 'PUT',
       headers: this._headers,
