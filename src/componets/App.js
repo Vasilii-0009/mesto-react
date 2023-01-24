@@ -1,9 +1,7 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import Header from './Header';
 import Main from './Main'
 import Footer from './Footer';
-import PopupWithForm from './PopupWithForm'
 import ImagePopup from './ImagePopup'
 //new import 
 import dataApi from '../utils/Api'
@@ -13,21 +11,25 @@ import EditProfilePopup from './EditProfilePopup'
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 
-
 function App() {
 
+  const [selectedCard, setSelectedCard] = useState({ name: '', link: '' })
   const [currentUserContext, setCurrentUser] = useState({})
   const [cardsContext, setCard] = useState([])
 
   useEffect(() => {
     dataApi.getInfoUser().then((data) => {
       setCurrentUser(data)
+    }).catch((err) => {
+      console.log(`Данные не сохранились на сервере (код ошибки): ${err}`)
     })
   }, [])
 
   useEffect(() => {
     dataApi.getTasks().then((data) => {
       setCard(data.slice(0, 8))
+    }).catch((err) => {
+      console.log(`Данные не сохранились на сервере (код ошибки): ${err}`)
     })
   }, [])
 
@@ -40,37 +42,44 @@ function App() {
     if (isLiked) {
       dataApi.deleteLike(card._id).then((newCard) => {
         setCard((state) => state.map((c) => c._id === card._id ? newCard : c));
+      }).catch((err) => {
+        console.log(`Лайк не удален (код ошибки): ${err}`)
       })
     } else {
       dataApi.addLike(card._id).then((newCard) => {
         setCard((state) => state.map((c) => c._id === card._id ? newCard : c));
+      }).catch((err) => {
+        console.log(`Лайк не добавлен (код ошибки): ${err}`)
       })
     }
   }
   // функция  удаление карточки
   function handleCardDelete(card) {
 
-    dataApi.deleteCard(card._id).then((deletcard) => {
-      setCard((state) => {
-        const res = state.filter((item) => {
-          if (item._id !== card._id) {
-            return state
-          }
-        })
-        return res
-      })
+    dataApi.deleteCard(card._id).then(() => {
+      setCard((state) => state.filter((item) => {
+        if (item._id !== card._id) {
+          return state
+        }
+      }))
+    }).catch((err) => {
+      console.log(`Карточка не удалена (код ошибки): ${err}`)
     })
   }
   //обновляем дынные пользователя 
   function handleUpdateUser(infoUser) {
     dataApi.saveInfoUser(infoUser.name, infoUser.about).then((data) => {
       setCurrentUser(data)
+    }).catch((err) => {
+      console.log(`Данные пользователя не сохранены (код ошибки): ${err}`)
     })
   }
   // добавление аватарки 
   function handleUpdateAvatar(data) {
     dataApi.updateAvatar(data.avatar).then((data) => {
       setCurrentUser(data)
+    }).catch((err) => {
+      console.log(`Аватар не поменялся (код ошибки): ${err}`)
     })
   }
   //добавление фоторграфии
@@ -78,18 +87,15 @@ function App() {
 
     dataApi.creatCard(data.name, data.link).then((newCard) => {
       setCard([newCard, ...cardsContext])
+    }).catch((err) => {
+      console.log(`Карточка не сохранена  (код ошибки): ${err}`)
     })
   }
-
-
 
   //last code
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false)
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false)
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false)
-
-  const [selectedCard, setSelectedCard] = useState({ name: '', link: '' })
-
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true)
@@ -100,7 +106,6 @@ function App() {
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true)
   }
-
   function closeAllPopups() {
     setEditProfilePopupOpen(false)
     setAddPlacePopupOpen(false)

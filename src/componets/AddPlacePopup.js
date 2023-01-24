@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PopupWithForm from './PopupWithForm'
 
 function AddPlacePopup(props) {
@@ -22,15 +21,20 @@ function AddPlacePopup(props) {
     })
   }
 
+  useEffect(() => {
+    setName('')
+    setSrc('')
+  }, [props.isOpen])
+
   return (
     <PopupWithForm onSubmit={handleSubmit} onClose={props.onClose} isOpen={props.isOpen} name='add' title='Новое место' textBtn='Создать'>
       <div className="popup__form-container">
-        <input onChange={handelChangeName} id="textplus-input" type="text" name="name" placeholder="Название"
+        <input value={name} onChange={handelChangeName} id="textplus-input" type="text" name="name" placeholder="Название"
           className="popup__input popup-add__input popup-add__input_value_autor" minLength="2" maxLength="30" required />
         <span className="textplus-input-error popup__input-error"></span>
       </div>
       <div className="popup__form-container">
-        <input onChange={handelSrc} id="ulrplus-input" type="url" name="link" placeholder="Ссылка на картинку"
+        <input value={src} onChange={handelSrc} id="ulrplus-input" type="url" name="link" placeholder="Ссылка на картинку"
           className="popup__input  popup-add__input popup-add__input_value_prof" required />
         <span className="ulrplus-input-error popup__input-error"></span>
       </div>

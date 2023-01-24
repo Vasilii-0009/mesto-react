@@ -1,8 +1,6 @@
 import React from 'react';
 import avatar from '../images/Avatar.jpg'
 import labelEdit from '../images/pencil.svg'
-import { useEffect, useState } from 'react'
-import dataApi from '../utils/Api'
 import Card from './Card'
 
 //new import
@@ -31,8 +29,8 @@ function Main(props) {
         <button onClick={props.onAddPlace} type="button" className="  profile__add"></button>
       </section>
       <section className="elements container">
-        {cardsContext.map((card) => {
 
+        {cardsContext.map((card) => {
           return (
             <Card handleDeleteClick={props.onCardDelete} handleLikeClick={props.onCardLike} cardInfo={card} onCardClick={props.onCardClick} key={card._id} />
           )
