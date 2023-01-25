@@ -7,8 +7,6 @@ function EditProfilePopup(props) {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
 
-
-
   function handelChangeName(evt) {
     setName(evt.target.value)
   }

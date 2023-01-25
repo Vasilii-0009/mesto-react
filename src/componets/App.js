@@ -17,6 +17,26 @@ function App() {
   const [currentUserContext, setCurrentUser] = useState({})
   const [cardsContext, setCard] = useState([])
 
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false)
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false)
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false)
+
+  function handleEditProfileClick() {
+    setEditProfilePopupOpen(true)
+  }
+  function handleAddPlaceClick() {
+    setAddPlacePopupOpen(true)
+  }
+  function handleEditAvatarClick() {
+    setEditAvatarPopupOpen(true)
+  }
+  function closeAllPopups() {
+    setEditProfilePopupOpen(false)
+    setAddPlacePopupOpen(false)
+    setEditAvatarPopupOpen(false)
+    setSelectedCard({ name: '' })
+  }
+
   useEffect(() => {
     dataApi.getInfoUser().then((data) => {
       setCurrentUser(data)
@@ -27,7 +47,7 @@ function App() {
 
   useEffect(() => {
     dataApi.getTasks().then((data) => {
-      setCard(data.slice(0, 8))
+      setCard(data)
     }).catch((err) => {
       console.log(`Данные не сохранились на сервере (код ошибки): ${err}`)
     })
@@ -90,27 +110,6 @@ function App() {
     }).catch((err) => {
       console.log(`Карточка не сохранена  (код ошибки): ${err}`)
     })
-  }
-
-  //last code
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false)
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false)
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false)
-
-  function handleEditProfileClick() {
-    setEditProfilePopupOpen(true)
-  }
-  function handleAddPlaceClick() {
-    setAddPlacePopupOpen(true)
-  }
-  function handleEditAvatarClick() {
-    setEditAvatarPopupOpen(true)
-  }
-  function closeAllPopups() {
-    setEditProfilePopupOpen(false)
-    setAddPlacePopupOpen(false)
-    setEditAvatarPopupOpen(false)
-    setSelectedCard({ name: '' })
   }
 
   return (
