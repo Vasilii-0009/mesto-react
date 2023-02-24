@@ -10,6 +10,7 @@ import CardsContext from '../contexts/CardsContext'
 import EditProfilePopup from './EditProfilePopup'
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -129,6 +130,9 @@ function App() {
 
         </CurrentUserContext.Provider>
       </CardsContext.Provider>
+      <Routes>
+        <Route path='/' element={<div>hellow</div>} />
+      </Routes>
     </div>
   );
 }
