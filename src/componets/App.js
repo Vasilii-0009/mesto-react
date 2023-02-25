@@ -130,9 +130,7 @@ function App() {
 
         </CurrentUserContext.Provider>
       </CardsContext.Provider>
-      <Routes>
-        <Route path='/' element={<div>hellow</div>} />
-      </Routes>
+
     </div>
   );
 }
