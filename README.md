@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Проект: Классные места планеты земля
+___
+### О чём сайт ?
+[Сылка на сайт](https://new-react-seven.vercel.app/)
+* Добавлять туба любимые и интересные  фото
+* Редактировать свой профиль и измненять аватрку 
+___
+**Функциональность сайта**
+1. Интерактивный.
+2. Адаптивный под разные устройства.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Какие методы и технологий  использовал web-разработчик на сайте?**
+Следущие:
+* React
+* React-Hook
+* CRA
+* JS
+* JWT
+* Flex-box;
+* Grid-layout;
+* Nexted;
+___
+```
+ПЛАНЫ ПО ДОРАБОТКЕ ПРОЕКТА:
+1.Сделать валидацию всех форм
 
-## Available Scripts
+```
+___
+## Начало работы с созданием приложения React
+* Этот проект был запущен с помощью приложения Create React.
 
-In the project directory, you can run:
+### Доступные сценарии
+* В каталоге проекта вы можете запустить:
 
-### `npm start`
+**npm start**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ Запускает приложение в режиме разработки.
+ Открыть http://localhost:3000 чтобы просмотреть его в вашем браузере.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ Страница перезагрузится, когда вы внесете изменения.
+ Вы также можете увидеть любые ошибки lint в консоли.
 
-### `npm test`
+**npm test**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ Запускает тестовый прогон в режиме интерактивного просмотра.
+ См. Раздел о выполнении тестов для получения дополнительной информации.
 
-### `npm run build`
+**npm run build**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ Создает приложение для производства в buildпапку.
+ Он правильно связывает React в рабочем режиме и оптимизирует сборку для достижения наилучшей производительности.
+ Сборка сокращена, а имена файлов включают хэши.
+ Ваше приложение готово к развертыванию!
+ См. Раздел о развертывании для получения дополнительной информации.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**npm run eject**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ Примечание: это односторонняя операция. Однажды тыeject, ты не можешь вернуться!
 
-### `npm run eject`
+ Если вас не устраивает инструмент сборки и выбор конфигурации, вы можете ejectв любое время.    
+ Эта команда удалит зависимость от одиночной сборки из вашего проекта.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ Вместо этого он скопирует все файлы конфигурации и транзитивные зависимости (webpack, Babel,  ESLint и т. Д.) Прямо в ваш проект, Чтобы вы имели полный контроль над ними. Все команды, за исключениемeject, будут по-прежнему работать, но они будут указывать на скопированные скрипты, чтобы вы могли их настроить. На данный момент вы предоставлены сами себе.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Вам не нужно никогда использовать eject. Разработанный набор функций подходит для небольших и средних развертываний, и вы не должны чувствовать себя обязанным использовать эту функцию.   
+ Однако мы понимаем, что этот инструмент не был бы полезен, если бы вы не могли настроить его, когда будете готовы к этому.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
